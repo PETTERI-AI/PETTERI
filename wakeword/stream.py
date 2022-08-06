@@ -1,4 +1,4 @@
-import pyaudio
+from pyaudio import PyAudio, paInt16
 import wave
 
 RATE: int = 16000
@@ -9,10 +9,10 @@ class MicStream:
     """A simple audio stream from default input device."""
 
     def __init__(self):
-        p = pyaudio.PyAudio()
+        p = PyAudio()
 
         stream = p.open(
-            format=pyaudio.paInt16,
+            format=paInt16,
             channels=1,
             rate=RATE,
             input=True,
@@ -48,7 +48,11 @@ class MicStream:
         """Save a given list of frames to a WAV file."""
         wf = wave.open(filename, "wb")
         wf.setnchannels(1)
-        wf.setsampwidth(self.p.get_sample_size(pyaudio.paInt16))
+        wf.setsampwidth(self.p.get_sample_size(paInt16))
         wf.setframerate(RATE)
         wf.writeframes(b"".join(frames))
         wf.close()
+
+    def __del__(self):
+        self.stop()
+        self.p.terminate()
