@@ -5,7 +5,9 @@ description = ""
 authors = ["Joona Gynther <joona@gynther.xyz>"]
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = ">=3.10,<3.11"
+PyAudio = "^0.2.12"
+numpy = "^1.23.1"
 
 [tool.poetry.dev-dependencies]
 
