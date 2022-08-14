@@ -56,15 +56,15 @@ python-versions = "*"
 
 [[package]]
 name = "filelock"
-version = "3.7.1"
+version = "3.8.0"
 description = "A platform independent file lock."
 category = "dev"
 optional = false
 python-versions = ">=3.7"
 
 [package.extras]
-docs = ["furo (>=2021.8.17b43)", "sphinx (>=4.1)", "sphinx-autodoc-typehints (>=1.12)"]
-testing = ["covdefaults (>=1.2.0)", "coverage (>=4)", "pytest (>=4)", "pytest-cov", "pytest-timeout (>=1.4.2)"]
+testing = ["pytest-timeout (>=2.1)", "pytest-cov (>=3)", "pytest (>=7.1.2)", "coverage (>=6.4.2)", "covdefaults (>=2.2)"]
+docs = ["sphinx-autodoc-typehints (>=1.19.1)", "sphinx (>=5.1.1)", "furo (>=2022.6.21)"]
 
 [[package]]
 name = "flake8"
@@ -169,6 +169,17 @@ toml = "*"
 virtualenv = ">=20.0.8"
 
 [[package]]
+name = "pyaudio"
+version = "0.2.12"
+description = "Cross-platform audio I/O with PortAudio"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.extras]
+test = ["numpy"]
+
+[[package]]
 name = "pycodestyle"
 version = "2.9.1"
 description = "Python style guide checker"
@@ -218,25 +229,25 @@ python-versions = ">=3.7"
 
 [[package]]
 name = "virtualenv"
-version = "20.16.2"
+version = "20.16.3"
 description = "Virtual Python Environment builder"
 category = "dev"
 optional = false
 python-versions = ">=3.6"
 
 [package.dependencies]
-distlib = ">=0.3.1,<1"
-filelock = ">=3.2,<4"
-platformdirs = ">=2,<3"
+distlib = ">=0.3.5,<1"
+filelock = ">=3.4.1,<4"
+platformdirs = ">=2.4,<3"
 
 [package.extras]
-docs = ["proselint (>=0.10.2)", "sphinx (>=3)", "sphinx-argparse (>=0.2.5)", "sphinx-rtd-theme (>=0.4.3)", "towncrier (>=21.3)"]
-testing = ["coverage (>=4)", "coverage-enable-subprocess (>=1)", "flaky (>=3)", "packaging (>=20.0)", "pytest (>=4)", "pytest-env (>=0.6.2)", "pytest-freezegun (>=0.4.1)", "pytest-mock (>=2)", "pytest-randomly (>=1)", "pytest-timeout (>=1)"]
+testing = ["pytest-timeout (>=2.1)", "pytest-randomly (>=3.10.3)", "pytest-mock (>=3.6.1)", "pytest-freezegun (>=0.4.2)", "pytest-env (>=0.6.2)", "pytest (>=7.0.1)", "packaging (>=21.3)", "flaky (>=3.7)", "coverage-enable-subprocess (>=1)", "coverage (>=6.2)"]
+docs = ["towncrier (>=21.9)", "sphinx-rtd-theme (>=1)", "sphinx-argparse (>=0.3.1)", "sphinx (>=5.1.1)", "proselint (>=0.13)"]
 
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "2ddb7f2ad5beeab67b43f39e382e1ac4af7993927ce4ebb3832192b8d36e0cb9"
+content-hash = "10ea3d79972d06a881bfcc2f4ca64fd14ba997e0a67fafd3b091a87be95e4e04"
 
 [metadata.files]
 black = [
@@ -281,8 +292,8 @@ distlib = [
     {file = "distlib-0.3.5.tar.gz", hash = "sha256:a7f75737c70be3b25e2bee06288cec4e4c221de18455b2dd037fe2a795cab2fe"},
 ]
 filelock = [
-    {file = "filelock-3.7.1-py3-none-any.whl", hash = "sha256:37def7b658813cda163b56fc564cdc75e86d338246458c4c28ae84cabefa2404"},
-    {file = "filelock-3.7.1.tar.gz", hash = "sha256:3a0fd85166ad9dbab54c9aec96737b744106dc5f15c0b09a6744a445299fcf04"},
+    {file = "filelock-3.8.0-py3-none-any.whl", hash = "sha256:617eb4e5eedc82fc5f47b6d61e4d11cb837c56cb4544e39081099fa17ad109d4"},
+    {file = "filelock-3.8.0.tar.gz", hash = "sha256:55447caa666f2198c5b6b13a26d2084d26fa5b115c00d065664b2124680c4edc"},
 ]
 flake8 = [
     {file = "flake8-5.0.4-py2.py3-none-any.whl", hash = "sha256:7a1cf6b73744f5806ab95e526f6f0d8c01c66d7bbe349562d22dfca20610b248"},
@@ -341,6 +352,17 @@ pre-commit = [
     {file = "pre_commit-2.20.0-py2.py3-none-any.whl", hash = "sha256:51a5ba7c480ae8072ecdb6933df22d2f812dc897d5fe848778116129a681aac7"},
     {file = "pre_commit-2.20.0.tar.gz", hash = "sha256:a978dac7bc9ec0bcee55c18a277d553b0f419d259dadb4b9418ff2d00eb43959"},
 ]
+pyaudio = [
+    {file = "PyAudio-0.2.12-cp310-cp310-win32.whl", hash = "sha256:71fc1688732fced907ae707d609cc3eead9fa05baf703bf08885f71a8fd9c658"},
+    {file = "PyAudio-0.2.12-cp310-cp310-win_amd64.whl", hash = "sha256:ffa235c220992e417e5a462f6d73ffb1be54b683005a1c6b185139580f59e234"},
+    {file = "PyAudio-0.2.12-cp37-cp37m-win32.whl", hash = "sha256:d89f065adc0058df90ec59aa6b35c1c036f17bb4323fb68b4267c12924e9553e"},
+    {file = "PyAudio-0.2.12-cp37-cp37m-win_amd64.whl", hash = "sha256:2f4206c6a8d2eeb2d1f054c69e3741c8634cfafe7887be4950a2f7d273700f8a"},
+    {file = "PyAudio-0.2.12-cp38-cp38-win32.whl", hash = "sha256:0f9debc6e47b6a5a4fe9da9d213d4bfe5e8096e68f0612f1b9097e3253eeea4d"},
+    {file = "PyAudio-0.2.12-cp38-cp38-win_amd64.whl", hash = "sha256:1c29930cf2e392d8b21a4c6253efe39d7400e37d61a7991756d3b00a46bf18ce"},
+    {file = "PyAudio-0.2.12-cp39-cp39-win32.whl", hash = "sha256:dafe891903402694a0fc87663bdb9b89e7fa66872446c5ef0c9d71ac4780cf1d"},
+    {file = "PyAudio-0.2.12-cp39-cp39-win_amd64.whl", hash = "sha256:880aff391a73ff5e94bae73e32d3b8e27e988a93afec2dd9c74dcd92c305f8cc"},
+    {file = "PyAudio-0.2.12.tar.gz", hash = "sha256:55ddf5db72bc537bba5f5dbca3ab9f0222ee5b842bda83978eab0b7b8f60fb9e"},
+]
 pycodestyle = [
     {file = "pycodestyle-2.9.1-py2.py3-none-any.whl", hash = "sha256:d1735fc58b418fd7c5f658d28d943854f8a849b01a5d0a1e6f3f3fdd0166804b"},
     {file = "pycodestyle-2.9.1.tar.gz", hash = "sha256:2c9607871d58c76354b697b42f5d57e1ada7d261c261efac224b664affdc5785"},
@@ -397,6 +419,6 @@ typing-extensions = [
     {file = "typing_extensions-4.3.0.tar.gz", hash = "sha256:e6d2677a32f47fc7eb2795db1dd15c1f34eff616bcaf2cfb5e997f854fa1c4a6"},
 ]
 virtualenv = [
-    {file = "virtualenv-20.16.2-py2.py3-none-any.whl", hash = "sha256:635b272a8e2f77cb051946f46c60a54ace3cb5e25568228bd6b57fc70eca9ff3"},
-    {file = "virtualenv-20.16.2.tar.gz", hash = "sha256:0ef5be6d07181946891f5abc8047fda8bc2f0b4b9bf222c64e6e8963baee76db"},
+    {file = "virtualenv-20.16.3-py2.py3-none-any.whl", hash = "sha256:4193b7bc8a6cd23e4eb251ac64f29b4398ab2c233531e66e40b19a6b7b0d30c1"},
+    {file = "virtualenv-20.16.3.tar.gz", hash = "sha256:d86ea0bb50e06252d79e6c241507cb904fcd66090c3271381372d6221a3970f9"},
 ]
