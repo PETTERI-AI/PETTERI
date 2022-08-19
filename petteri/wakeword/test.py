@@ -1,4 +1,4 @@
-from stream import MicStream
+from petteri.wakeword.stream import MicStream
 
 stream = MicStream()
 stream.start()
