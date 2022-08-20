@@ -29,3 +29,5 @@ repos:
         name: eslint
         entry: cd brain && bun eslint --fix 'src/**/*.ts'
         language: system
+        files: \.tsx?$
+        types: [file]
