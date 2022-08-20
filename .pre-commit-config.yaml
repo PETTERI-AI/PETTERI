@@ -1,4 +1,3 @@
-fail_fast: true
 repos:
   - repo: https://github.com/psf/black
     rev: 22.6.0
@@ -24,3 +23,11 @@ repos:
     rev: v0.971
     hooks:
       - id: mypy
+  - repo: local
+    hooks:
+      - id: eslint
+        name: eslint
+        entry: cd brain && bun eslint --fix 'src/**/*.ts'
+        language: system
+        files: \.tsx?$
+        types: [file]
