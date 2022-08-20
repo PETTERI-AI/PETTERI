@@ -23,3 +23,9 @@ repos:
     rev: v0.971
     hooks:
       - id: mypy
+  - repo: local
+    hooks:
+      - id: eslint
+        name: eslint
+        entry: cd brain && bun eslint --fix 'src/**/*.ts'
+        language: system
