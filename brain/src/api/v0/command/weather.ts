@@ -1,21 +1,14 @@
 import type { Handler } from "@handler";
+import { parseWeatherData, getForecastForLatLon } from "@integrations/met.no";
 
 const handler: Handler = async (c) => {
   // Hervanta
   const [lat, lon] = [61.4509, 23.8495];
 
-  const baseUrl = "https://api.met.no/weatherapi/nowcast/2.0/complete";
-  const url = `${baseUrl}?lat=${lat}&lon=${lon}`;
+  const forecast = await getForecastForLatLon(lat, lon);
+  const weather = parseWeatherData(forecast);
 
-  const res = await fetch(url, {
-    headers: {
-      "User-Agent": "petteri/brain/0.0 github.com/PETTERI-AI",
-    },
-  });
-
-  const json = await res.json();
-
-  return c.json(json);
+  return c.json(weather);
 };
 
 export default handler;
