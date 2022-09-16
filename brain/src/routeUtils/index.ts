@@ -7,4 +7,4 @@ export class ExtendedHono extends Hono {
   }
 }
 
-export type Handler = (c: Context) => Response;
+export type Handler = (c: Context) => Response | Promise<Response>;
