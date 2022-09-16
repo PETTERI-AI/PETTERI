@@ -1,8 +1,9 @@
-import { Hono } from "hono";
+import { ExtendedHono } from "./routeUtils";
 
-const app = new Hono();
+const app = new ExtendedHono();
+await app.makeRoutes();
 
-app.get("/", (context) => context.text("Hello dad"));
+console.log(`Listening on port 3000`);
 
 export default {
   port: 3000,
