@@ -2,7 +2,7 @@ import { Hono, Context } from "hono";
 import { setupRoutes } from "./resolveRoutes";
 
 export class ExtendedHono extends Hono {
-  async makeRoutes() {
+  async init() {
     await setupRoutes(this);
   }
 }

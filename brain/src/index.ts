@@ -1,7 +1,7 @@
 import { ExtendedHono } from "./routeUtils";
 
 const app = new ExtendedHono();
-await app.makeRoutes();
+await app.init();
 
 console.log(`Listening on port 3000`);
 
