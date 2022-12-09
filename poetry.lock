@@ -21,7 +21,7 @@ uvloop = ["uvloop (>=0.15.2)"]
 
 [[package]]
 name = "certifi"
-version = "2022.6.15"
+version = "2022.12.7"
 description = "Python package for providing Mozilla's CA Bundle."
 category = "main"
 optional = false
@@ -44,7 +44,7 @@ optional = false
 python-versions = ">=3.6.0"
 
 [package.extras]
-unicode_backport = ["unicodedata2"]
+unicode-backport = ["unicodedata2"]
 
 [[package]]
 name = "click"
@@ -82,8 +82,8 @@ optional = false
 python-versions = ">=3.7"
 
 [package.extras]
-testing = ["pytest-timeout (>=2.1)", "pytest-cov (>=3)", "pytest (>=7.1.2)", "coverage (>=6.4.2)", "covdefaults (>=2.2)"]
-docs = ["sphinx-autodoc-typehints (>=1.19.1)", "sphinx (>=5.1.1)", "furo (>=2022.6.21)"]
+docs = ["furo (>=2022.6.21)", "sphinx (>=5.1.1)", "sphinx-autodoc-typehints (>=1.19.1)"]
+testing = ["covdefaults (>=2.2)", "coverage (>=6.4.2)", "pytest (>=7.1.2)", "pytest-cov (>=3)", "pytest-timeout (>=2.1)"]
 
 [[package]]
 name = "flake8"
@@ -115,13 +115,13 @@ tqdm = "*"
 typing-extensions = ">=3.7.4.3"
 
 [package.extras]
-torch = ["torch"]
-testing = ["soundfile", "datasets", "pytest-cov", "pytest"]
+all = ["black (>=22.0,<23.0)", "datasets", "flake8 (>=3.8.3)", "isort (>=5.5.4)", "pytest", "pytest-cov", "soundfile"]
+dev = ["black (>=22.0,<23.0)", "datasets", "flake8 (>=3.8.3)", "isort (>=5.5.4)", "pytest", "pytest-cov", "soundfile"]
+fastai = ["fastai (>=2.4)", "fastcore (>=1.3.27)", "toml"]
+quality = ["black (>=22.0,<23.0)", "flake8 (>=3.8.3)", "isort (>=5.5.4)"]
 tensorflow = ["graphviz", "pydot", "tensorflow"]
-quality = ["flake8 (>=3.8.3)", "isort (>=5.5.4)", "black (>=22.0,<23.0)"]
-fastai = ["fastcore (>=1.3.27)", "fastai (>=2.4)", "toml"]
-dev = ["flake8 (>=3.8.3)", "isort (>=5.5.4)", "black (>=22.0,<23.0)", "soundfile", "datasets", "pytest-cov", "pytest"]
-all = ["flake8 (>=3.8.3)", "isort (>=5.5.4)", "black (>=22.0,<23.0)", "soundfile", "datasets", "pytest-cov", "pytest"]
+testing = ["datasets", "pytest", "pytest-cov", "soundfile"]
+torch = ["torch"]
 
 [[package]]
 name = "identify"
@@ -184,6 +184,9 @@ category = "dev"
 optional = false
 python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*"
 
+[package.dependencies]
+setuptools = "*"
+
 [[package]]
 name = "numpy"
 version = "1.23.2"
@@ -220,8 +223,8 @@ optional = false
 python-versions = ">=3.7"
 
 [package.extras]
-docs = ["furo (>=2021.7.5b38)", "proselint (>=0.10.2)", "sphinx-autodoc-typehints (>=1.12)", "sphinx (>=4)"]
-test = ["appdirs (==1.4.4)", "pytest-cov (>=2.7)", "pytest-mock (>=3.6)", "pytest (>=6)"]
+docs = ["furo (>=2021.7.5b38)", "proselint (>=0.10.2)", "sphinx (>=4)", "sphinx-autodoc-typehints (>=1.12)"]
+test = ["appdirs (==1.4.4)", "pytest (>=6)", "pytest-cov (>=2.7)", "pytest-mock (>=3.6)"]
 
 [[package]]
 name = "pre-commit"
@@ -275,7 +278,7 @@ optional = false
 python-versions = ">=3.6.8"
 
 [package.extras]
-diagrams = ["railroad-diagrams", "jinja2"]
+diagrams = ["jinja2", "railroad-diagrams"]
 
 [[package]]
 name = "pyyaml"
@@ -309,7 +312,20 @@ urllib3 = ">=1.21.1,<1.27"
 
 [package.extras]
 socks = ["PySocks (>=1.5.6,!=1.5.7)"]
-use_chardet_on_py3 = ["chardet (>=3.0.2,<6)"]
+use-chardet-on-py3 = ["chardet (>=3.0.2,<6)"]
+
+[[package]]
+name = "setuptools"
+version = "65.6.3"
+description = "Easily download, build, install, upgrade, and uninstall Python packages"
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+docs = ["furo", "jaraco.packaging (>=9)", "jaraco.tidelift (>=1.4)", "pygments-github-lexers (==0.0.5)", "rst.linker (>=1.9)", "sphinx (>=3.5)", "sphinx-favicon", "sphinx-hoverxref (<2)", "sphinx-inline-tabs", "sphinx-notfound-page (==0.8.3)", "sphinx-reredirects", "sphinxcontrib-towncrier"]
+testing = ["build[virtualenv]", "filelock (>=3.4.0)", "flake8 (<5)", "flake8-2020", "ini2toml[lite] (>=0.9)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "pip (>=19.1)", "pip-run (>=8.8)", "pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=1.3)", "pytest-flake8", "pytest-mypy (>=0.9.1)", "pytest-perf", "pytest-timeout", "pytest-xdist", "tomli-w (>=1.0.0)", "virtualenv (>=13.0.0)", "wheel"]
+testing-integration = ["build[virtualenv]", "filelock (>=3.4.0)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "pytest", "pytest-enabler", "pytest-xdist", "tomli", "virtualenv (>=13.0.0)", "wheel"]
 
 [[package]]
 name = "tokenizers"
@@ -320,8 +336,8 @@ optional = false
 python-versions = "*"
 
 [package.extras]
-testing = ["datasets", "numpy", "requests", "pytest"]
-docs = ["setuptools-rust", "sphinx-rtd-theme", "sphinx"]
+docs = ["setuptools-rust", "sphinx", "sphinx-rtd-theme"]
+testing = ["datasets", "numpy", "pytest", "requests"]
 
 [[package]]
 name = "toml"
@@ -373,10 +389,10 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,>=2.7"
 colorama = {version = "*", markers = "platform_system == \"Windows\""}
 
 [package.extras]
-telegram = ["requests"]
-slack = ["slack-sdk"]
+dev = ["py-make (>=0.1.0)", "twine", "wheel"]
 notebook = ["ipywidgets (>=6)"]
-dev = ["wheel", "twine", "py-make (>=0.1.0)"]
+slack = ["slack-sdk"]
+telegram = ["requests"]
 
 [[package]]
 name = "transformers"
@@ -398,46 +414,46 @@ tokenizers = ">=0.11.1,<0.11.3 || >0.11.3,<0.13"
 tqdm = ">=4.27"
 
 [package.extras]
-vision = ["pillow"]
-torchhub = ["tqdm (>=4.27)", "tokenizers (>=0.11.1,!=0.11.3,<0.13)", "torch (>=1.0,<1.12)", "sentencepiece (>=0.1.91,!=0.1.92)", "requests", "regex (!=2019.12.17)", "protobuf (<=3.20.1)", "packaging (>=20.0)", "numpy (>=1.17)", "importlib-metadata", "huggingface-hub (>=0.1.0,<1.0)", "filelock"]
-torch-speech = ["resampy (<0.3.1)", "phonemizer", "pyctcdecode (>=0.3.0)", "librosa", "torchaudio"]
-torch = ["torch (>=1.0,<1.12)"]
-tokenizers = ["tokenizers (>=0.11.1,!=0.11.3,<0.13)"]
-timm = ["timm"]
-tf-speech = ["resampy (<0.3.1)", "phonemizer", "pyctcdecode (>=0.3.0)", "librosa"]
-tf-cpu = ["tensorflow-text", "tf2onnx", "onnxconverter-common", "tensorflow-cpu (>=2.3)"]
-tf = ["tensorflow-text", "tf2onnx", "onnxconverter-common", "tensorflow (>=2.3)"]
-testing = ["cookiecutter (==1.7.3)", "faiss-cpu", "rjieba", "sacremoses", "protobuf (<=3.20.1)", "hf-doc-builder (>=0.3.0)", "GitPython (<3.1.19)", "nltk", "rouge-score", "sacrebleu (>=1.4.12,<2.0.0)", "black (==22.3)", "pytest-timeout", "dill (<0.3.5)", "datasets", "psutil", "parameterized", "timeout-decorator", "pytest-xdist", "pytest"]
-speech = ["resampy (<0.3.1)", "phonemizer", "pyctcdecode (>=0.3.0)", "librosa", "torchaudio"]
-sklearn = ["scikit-learn"]
-sigopt = ["sigopt"]
-serving = ["starlette", "fastapi", "uvicorn", "pydantic"]
-sentencepiece = ["protobuf (<=3.20.1)", "sentencepiece (>=0.1.91,!=0.1.92)"]
-sagemaker = ["sagemaker (>=2.31.0)"]
-retrieval = ["datasets", "faiss-cpu"]
-ray = ["ray"]
-quality = ["hf-doc-builder (>=0.3.0)", "GitPython (<3.1.19)", "flake8 (>=3.8.3)", "isort (>=5.5.4)", "black (==22.3)"]
-optuna = ["optuna"]
-onnxruntime = ["onnxruntime-tools (>=1.4.2)", "onnxruntime (>=1.4.0)"]
-onnx = ["onnxruntime-tools (>=1.4.2)", "onnxruntime (>=1.4.0)", "tf2onnx", "onnxconverter-common"]
-modelcreation = ["cookiecutter (==1.7.3)"]
-ja = ["unidic (>=1.0.2)", "unidic-lite (>=1.0.7)", "ipadic (>=1.0.0,<2.0)", "fugashi (>=1.0)"]
-integrations = ["sigopt", "ray", "optuna"]
-ftfy = ["ftfy"]
-flax-speech = ["resampy (<0.3.1)", "phonemizer", "pyctcdecode (>=0.3.0)", "librosa"]
-flax = ["optax (>=0.0.8)", "flax (>=0.4.1)", "jaxlib (>=0.1.65,<=0.3.6)", "jax (>=0.2.8,!=0.3.2,<=0.3.6)"]
-fairscale = ["fairscale (>0.3)"]
-docs_specific = ["hf-doc-builder"]
-docs = ["hf-doc-builder", "accelerate (>=0.10.0)", "codecarbon (==1.2.0)", "timm", "sigopt", "ray", "optuna", "pillow", "resampy (<0.3.1)", "phonemizer", "pyctcdecode (>=0.3.0)", "librosa", "torchaudio", "tokenizers (>=0.11.1,!=0.11.3,<0.13)", "protobuf (<=3.20.1)", "sentencepiece (>=0.1.91,!=0.1.92)", "optax (>=0.0.8)", "flax (>=0.4.1)", "jaxlib (>=0.1.65,<=0.3.6)", "jax (>=0.2.8,!=0.3.2,<=0.3.6)", "torch (>=1.0,<1.12)", "tensorflow-text", "tf2onnx", "onnxconverter-common", "tensorflow (>=2.3)"]
-dev-torch = ["onnxruntime-tools (>=1.4.2)", "onnxruntime (>=1.4.0)", "scikit-learn", "hf-doc-builder", "unidic (>=1.0.2)", "unidic-lite (>=1.0.7)", "ipadic (>=1.0.0,<2.0)", "fugashi (>=1.0)", "flake8 (>=3.8.3)", "isort (>=5.5.4)", "codecarbon (==1.2.0)", "timm", "sigopt", "ray", "optuna", "pillow", "resampy (<0.3.1)", "phonemizer", "pyctcdecode (>=0.3.0)", "librosa", "torchaudio", "tokenizers (>=0.11.1,!=0.11.3,<0.13)", "sentencepiece (>=0.1.91,!=0.1.92)", "torch (>=1.0,<1.12)", "cookiecutter (==1.7.3)", "faiss-cpu", "rjieba", "sacremoses", "protobuf (<=3.20.1)", "hf-doc-builder (>=0.3.0)", "GitPython (<3.1.19)", "nltk", "rouge-score", "sacrebleu (>=1.4.12,<2.0.0)", "black (==22.3)", "pytest-timeout", "dill (<0.3.5)", "datasets", "psutil", "parameterized", "timeout-decorator", "pytest-xdist", "pytest"]
-dev-tensorflow = ["resampy (<0.3.1)", "phonemizer", "pyctcdecode (>=0.3.0)", "librosa", "onnxruntime-tools (>=1.4.2)", "onnxruntime (>=1.4.0)", "scikit-learn", "hf-doc-builder", "flake8 (>=3.8.3)", "isort (>=5.5.4)", "pillow", "tokenizers (>=0.11.1,!=0.11.3,<0.13)", "sentencepiece (>=0.1.91,!=0.1.92)", "tensorflow-text", "tf2onnx", "onnxconverter-common", "tensorflow (>=2.3)", "cookiecutter (==1.7.3)", "faiss-cpu", "rjieba", "sacremoses", "protobuf (<=3.20.1)", "hf-doc-builder (>=0.3.0)", "GitPython (<3.1.19)", "nltk", "rouge-score", "sacrebleu (>=1.4.12,<2.0.0)", "black (==22.3)", "pytest-timeout", "dill (<0.3.5)", "datasets", "psutil", "parameterized", "timeout-decorator", "pytest-xdist", "pytest"]
-dev = ["scikit-learn", "hf-doc-builder", "unidic (>=1.0.2)", "unidic-lite (>=1.0.7)", "ipadic (>=1.0.0,<2.0)", "fugashi (>=1.0)", "flake8 (>=3.8.3)", "isort (>=5.5.4)", "cookiecutter (==1.7.3)", "faiss-cpu", "rjieba", "sacremoses", "hf-doc-builder (>=0.3.0)", "GitPython (<3.1.19)", "nltk", "rouge-score", "sacrebleu (>=1.4.12,<2.0.0)", "black (==22.3)", "pytest-timeout", "dill (<0.3.5)", "datasets", "psutil", "parameterized", "timeout-decorator", "pytest-xdist", "pytest", "accelerate (>=0.10.0)", "codecarbon (==1.2.0)", "timm", "sigopt", "ray", "optuna", "pillow", "resampy (<0.3.1)", "phonemizer", "pyctcdecode (>=0.3.0)", "librosa", "torchaudio", "tokenizers (>=0.11.1,!=0.11.3,<0.13)", "protobuf (<=3.20.1)", "sentencepiece (>=0.1.91,!=0.1.92)", "optax (>=0.0.8)", "flax (>=0.4.1)", "jaxlib (>=0.1.65,<=0.3.6)", "jax (>=0.2.8,!=0.3.2,<=0.3.6)", "torch (>=1.0,<1.12)", "tensorflow-text", "tf2onnx", "onnxconverter-common", "tensorflow (>=2.3)"]
-deepspeed-testing = ["optuna", "cookiecutter (==1.7.3)", "faiss-cpu", "rjieba", "sacremoses", "protobuf (<=3.20.1)", "hf-doc-builder (>=0.3.0)", "GitPython (<3.1.19)", "nltk", "rouge-score", "sacrebleu (>=1.4.12,<2.0.0)", "black (==22.3)", "pytest-timeout", "dill (<0.3.5)", "datasets", "psutil", "parameterized", "timeout-decorator", "pytest-xdist", "pytest", "accelerate (>=0.10.0)", "deepspeed (>=0.6.5)"]
-deepspeed = ["accelerate (>=0.10.0)", "deepspeed (>=0.6.5)"]
-codecarbon = ["codecarbon (==1.2.0)"]
-audio = ["resampy (<0.3.1)", "phonemizer", "pyctcdecode (>=0.3.0)", "librosa"]
-all = ["accelerate (>=0.10.0)", "codecarbon (==1.2.0)", "timm", "sigopt", "ray", "optuna", "pillow", "resampy (<0.3.1)", "phonemizer", "pyctcdecode (>=0.3.0)", "librosa", "torchaudio", "tokenizers (>=0.11.1,!=0.11.3,<0.13)", "protobuf (<=3.20.1)", "sentencepiece (>=0.1.91,!=0.1.92)", "optax (>=0.0.8)", "flax (>=0.4.1)", "jaxlib (>=0.1.65,<=0.3.6)", "jax (>=0.2.8,!=0.3.2,<=0.3.6)", "torch (>=1.0,<1.12)", "tensorflow-text", "tf2onnx", "onnxconverter-common", "tensorflow (>=2.3)"]
 accelerate = ["accelerate (>=0.10.0)"]
+all = ["Pillow", "accelerate (>=0.10.0)", "codecarbon (==1.2.0)", "flax (>=0.4.1)", "jax (>=0.2.8,!=0.3.2,<=0.3.6)", "jaxlib (>=0.1.65,<=0.3.6)", "librosa", "onnxconverter-common", "optax (>=0.0.8)", "optuna", "phonemizer", "protobuf (<=3.20.1)", "pyctcdecode (>=0.3.0)", "ray[tune]", "resampy (<0.3.1)", "sentencepiece (>=0.1.91,!=0.1.92)", "sigopt", "tensorflow (>=2.3)", "tensorflow-text", "tf2onnx", "timm", "tokenizers (>=0.11.1,!=0.11.3,<0.13)", "torch (>=1.0,<1.12)", "torchaudio"]
+audio = ["librosa", "phonemizer", "pyctcdecode (>=0.3.0)", "resampy (<0.3.1)"]
+codecarbon = ["codecarbon (==1.2.0)"]
+deepspeed = ["accelerate (>=0.10.0)", "deepspeed (>=0.6.5)"]
+deepspeed-testing = ["GitPython (<3.1.19)", "accelerate (>=0.10.0)", "black (==22.3)", "cookiecutter (==1.7.3)", "datasets", "deepspeed (>=0.6.5)", "dill (<0.3.5)", "faiss-cpu", "hf-doc-builder (>=0.3.0)", "nltk", "optuna", "parameterized", "protobuf (<=3.20.1)", "psutil", "pytest", "pytest-timeout", "pytest-xdist", "rjieba", "rouge-score", "sacrebleu (>=1.4.12,<2.0.0)", "sacremoses", "timeout-decorator"]
+dev = ["GitPython (<3.1.19)", "Pillow", "accelerate (>=0.10.0)", "black (==22.3)", "codecarbon (==1.2.0)", "cookiecutter (==1.7.3)", "datasets", "dill (<0.3.5)", "faiss-cpu", "flake8 (>=3.8.3)", "flax (>=0.4.1)", "fugashi (>=1.0)", "hf-doc-builder", "hf-doc-builder (>=0.3.0)", "ipadic (>=1.0.0,<2.0)", "isort (>=5.5.4)", "jax (>=0.2.8,!=0.3.2,<=0.3.6)", "jaxlib (>=0.1.65,<=0.3.6)", "librosa", "nltk", "onnxconverter-common", "optax (>=0.0.8)", "optuna", "parameterized", "phonemizer", "protobuf (<=3.20.1)", "psutil", "pyctcdecode (>=0.3.0)", "pytest", "pytest-timeout", "pytest-xdist", "ray[tune]", "resampy (<0.3.1)", "rjieba", "rouge-score", "sacrebleu (>=1.4.12,<2.0.0)", "sacremoses", "scikit-learn", "sentencepiece (>=0.1.91,!=0.1.92)", "sigopt", "tensorflow (>=2.3)", "tensorflow-text", "tf2onnx", "timeout-decorator", "timm", "tokenizers (>=0.11.1,!=0.11.3,<0.13)", "torch (>=1.0,<1.12)", "torchaudio", "unidic (>=1.0.2)", "unidic-lite (>=1.0.7)"]
+dev-tensorflow = ["GitPython (<3.1.19)", "Pillow", "black (==22.3)", "cookiecutter (==1.7.3)", "datasets", "dill (<0.3.5)", "faiss-cpu", "flake8 (>=3.8.3)", "hf-doc-builder", "hf-doc-builder (>=0.3.0)", "isort (>=5.5.4)", "librosa", "nltk", "onnxconverter-common", "onnxruntime (>=1.4.0)", "onnxruntime-tools (>=1.4.2)", "parameterized", "phonemizer", "protobuf (<=3.20.1)", "psutil", "pyctcdecode (>=0.3.0)", "pytest", "pytest-timeout", "pytest-xdist", "resampy (<0.3.1)", "rjieba", "rouge-score", "sacrebleu (>=1.4.12,<2.0.0)", "sacremoses", "scikit-learn", "sentencepiece (>=0.1.91,!=0.1.92)", "tensorflow (>=2.3)", "tensorflow-text", "tf2onnx", "timeout-decorator", "tokenizers (>=0.11.1,!=0.11.3,<0.13)"]
+dev-torch = ["GitPython (<3.1.19)", "Pillow", "black (==22.3)", "codecarbon (==1.2.0)", "cookiecutter (==1.7.3)", "datasets", "dill (<0.3.5)", "faiss-cpu", "flake8 (>=3.8.3)", "fugashi (>=1.0)", "hf-doc-builder", "hf-doc-builder (>=0.3.0)", "ipadic (>=1.0.0,<2.0)", "isort (>=5.5.4)", "librosa", "nltk", "onnxruntime (>=1.4.0)", "onnxruntime-tools (>=1.4.2)", "optuna", "parameterized", "phonemizer", "protobuf (<=3.20.1)", "psutil", "pyctcdecode (>=0.3.0)", "pytest", "pytest-timeout", "pytest-xdist", "ray[tune]", "resampy (<0.3.1)", "rjieba", "rouge-score", "sacrebleu (>=1.4.12,<2.0.0)", "sacremoses", "scikit-learn", "sentencepiece (>=0.1.91,!=0.1.92)", "sigopt", "timeout-decorator", "timm", "tokenizers (>=0.11.1,!=0.11.3,<0.13)", "torch (>=1.0,<1.12)", "torchaudio", "unidic (>=1.0.2)", "unidic-lite (>=1.0.7)"]
+docs = ["Pillow", "accelerate (>=0.10.0)", "codecarbon (==1.2.0)", "flax (>=0.4.1)", "hf-doc-builder", "jax (>=0.2.8,!=0.3.2,<=0.3.6)", "jaxlib (>=0.1.65,<=0.3.6)", "librosa", "onnxconverter-common", "optax (>=0.0.8)", "optuna", "phonemizer", "protobuf (<=3.20.1)", "pyctcdecode (>=0.3.0)", "ray[tune]", "resampy (<0.3.1)", "sentencepiece (>=0.1.91,!=0.1.92)", "sigopt", "tensorflow (>=2.3)", "tensorflow-text", "tf2onnx", "timm", "tokenizers (>=0.11.1,!=0.11.3,<0.13)", "torch (>=1.0,<1.12)", "torchaudio"]
+docs-specific = ["hf-doc-builder"]
+fairscale = ["fairscale (>0.3)"]
+flax = ["flax (>=0.4.1)", "jax (>=0.2.8,!=0.3.2,<=0.3.6)", "jaxlib (>=0.1.65,<=0.3.6)", "optax (>=0.0.8)"]
+flax-speech = ["librosa", "phonemizer", "pyctcdecode (>=0.3.0)", "resampy (<0.3.1)"]
+ftfy = ["ftfy"]
+integrations = ["optuna", "ray[tune]", "sigopt"]
+ja = ["fugashi (>=1.0)", "ipadic (>=1.0.0,<2.0)", "unidic (>=1.0.2)", "unidic-lite (>=1.0.7)"]
+modelcreation = ["cookiecutter (==1.7.3)"]
+onnx = ["onnxconverter-common", "onnxruntime (>=1.4.0)", "onnxruntime-tools (>=1.4.2)", "tf2onnx"]
+onnxruntime = ["onnxruntime (>=1.4.0)", "onnxruntime-tools (>=1.4.2)"]
+optuna = ["optuna"]
+quality = ["GitPython (<3.1.19)", "black (==22.3)", "flake8 (>=3.8.3)", "hf-doc-builder (>=0.3.0)", "isort (>=5.5.4)"]
+ray = ["ray[tune]"]
+retrieval = ["datasets", "faiss-cpu"]
+sagemaker = ["sagemaker (>=2.31.0)"]
+sentencepiece = ["protobuf (<=3.20.1)", "sentencepiece (>=0.1.91,!=0.1.92)"]
+serving = ["fastapi", "pydantic", "starlette", "uvicorn"]
+sigopt = ["sigopt"]
+sklearn = ["scikit-learn"]
+speech = ["librosa", "phonemizer", "pyctcdecode (>=0.3.0)", "resampy (<0.3.1)", "torchaudio"]
+testing = ["GitPython (<3.1.19)", "black (==22.3)", "cookiecutter (==1.7.3)", "datasets", "dill (<0.3.5)", "faiss-cpu", "hf-doc-builder (>=0.3.0)", "nltk", "parameterized", "protobuf (<=3.20.1)", "psutil", "pytest", "pytest-timeout", "pytest-xdist", "rjieba", "rouge-score", "sacrebleu (>=1.4.12,<2.0.0)", "sacremoses", "timeout-decorator"]
+tf = ["onnxconverter-common", "tensorflow (>=2.3)", "tensorflow-text", "tf2onnx"]
+tf-cpu = ["onnxconverter-common", "tensorflow-cpu (>=2.3)", "tensorflow-text", "tf2onnx"]
+tf-speech = ["librosa", "phonemizer", "pyctcdecode (>=0.3.0)", "resampy (<0.3.1)"]
+timm = ["timm"]
+tokenizers = ["tokenizers (>=0.11.1,!=0.11.3,<0.13)"]
+torch = ["torch (>=1.0,<1.12)"]
+torch-speech = ["librosa", "phonemizer", "pyctcdecode (>=0.3.0)", "resampy (<0.3.1)", "torchaudio"]
+torchhub = ["filelock", "huggingface-hub (>=0.1.0,<1.0)", "importlib-metadata", "numpy (>=1.17)", "packaging (>=20.0)", "protobuf (<=3.20.1)", "regex (!=2019.12.17)", "requests", "sentencepiece (>=0.1.91,!=0.1.92)", "tokenizers (>=0.11.1,!=0.11.3,<0.13)", "torch (>=1.0,<1.12)", "tqdm (>=4.27)"]
+vision = ["Pillow"]
 
 [[package]]
 name = "typing-extensions"
@@ -456,8 +472,8 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*, <4"
 
 [package.extras]
-brotli = ["brotlicffi (>=0.8.0)", "brotli (>=1.0.9)", "brotlipy (>=0.6.0)"]
-secure = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "certifi", "ipaddress"]
+brotli = ["brotli (>=1.0.9)", "brotlicffi (>=0.8.0)", "brotlipy (>=0.6.0)"]
+secure = ["certifi", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "ipaddress", "pyOpenSSL (>=0.14)"]
 socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 
 [[package]]
@@ -474,8 +490,8 @@ filelock = ">=3.4.1,<4"
 platformdirs = ">=2.4,<3"
 
 [package.extras]
-testing = ["pytest-timeout (>=2.1)", "pytest-randomly (>=3.10.3)", "pytest-mock (>=3.6.1)", "pytest-freezegun (>=0.4.2)", "pytest-env (>=0.6.2)", "pytest (>=7.0.1)", "packaging (>=21.3)", "flaky (>=3.7)", "coverage-enable-subprocess (>=1)", "coverage (>=6.2)"]
-docs = ["towncrier (>=21.9)", "sphinx-rtd-theme (>=1)", "sphinx-argparse (>=0.3.1)", "sphinx (>=5.1.1)", "proselint (>=0.13)"]
+docs = ["proselint (>=0.13)", "sphinx (>=5.1.1)", "sphinx-argparse (>=0.3.1)", "sphinx-rtd-theme (>=1)", "towncrier (>=21.9)"]
+testing = ["coverage (>=6.2)", "coverage-enable-subprocess (>=1)", "flaky (>=3.7)", "packaging (>=21.3)", "pytest (>=7.0.1)", "pytest-env (>=0.6.2)", "pytest-freezegun (>=0.4.2)", "pytest-mock (>=3.6.1)", "pytest-randomly (>=3.10.3)", "pytest-timeout (>=2.1)"]
 
 [metadata]
 lock-version = "1.1"
@@ -509,8 +525,8 @@ black = [
     {file = "black-22.6.0.tar.gz", hash = "sha256:6c6d39e28aed379aec40da1c65434c77d75e65bb59a1e1c283de545fb4e7c6c9"},
 ]
 certifi = [
-    {file = "certifi-2022.6.15-py3-none-any.whl", hash = "sha256:fe86415d55e84719d75f8b69414f6438ac3547d2078ab91b67e779ef69378412"},
-    {file = "certifi-2022.6.15.tar.gz", hash = "sha256:84c85a9078b11105f04f3036a9482ae10e4621616db313fe045dd24743a0820d"},
+    {file = "certifi-2022.12.7-py3-none-any.whl", hash = "sha256:4ad3232f5e926d6718ec31cfc1fcadfde020920e278684144551c91769c7bc18"},
+    {file = "certifi-2022.12.7.tar.gz", hash = "sha256:35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"},
 ]
 cfgv = [
     {file = "cfgv-3.3.1-py2.py3-none-any.whl", hash = "sha256:c6a0883f3917a037485059700b9e75da2464e6c27051014ad85ba6aaa5884426"},
@@ -638,6 +654,8 @@ pre-commit = [
 pyaudio = [
     {file = "PyAudio-0.2.12-cp310-cp310-win32.whl", hash = "sha256:71fc1688732fced907ae707d609cc3eead9fa05baf703bf08885f71a8fd9c658"},
     {file = "PyAudio-0.2.12-cp310-cp310-win_amd64.whl", hash = "sha256:ffa235c220992e417e5a462f6d73ffb1be54b683005a1c6b185139580f59e234"},
+    {file = "PyAudio-0.2.12-cp311-cp311-win32.whl", hash = "sha256:5678725eb828742ea3febf381b1bd0bb94ba76c35e5e0daeab84e4c50f9f5d47"},
+    {file = "PyAudio-0.2.12-cp311-cp311-win_amd64.whl", hash = "sha256:19f654bd516154a655d9569d12d2a86ab5dfd58d039c0e4c6d1a26ec4ca02d89"},
     {file = "PyAudio-0.2.12-cp37-cp37m-win32.whl", hash = "sha256:d89f065adc0058df90ec59aa6b35c1c036f17bb4323fb68b4267c12924e9553e"},
     {file = "PyAudio-0.2.12-cp37-cp37m-win_amd64.whl", hash = "sha256:2f4206c6a8d2eeb2d1f054c69e3741c8634cfafe7887be4950a2f7d273700f8a"},
     {file = "PyAudio-0.2.12-cp38-cp38-win32.whl", hash = "sha256:0f9debc6e47b6a5a4fe9da9d213d4bfe5e8096e68f0612f1b9097e3253eeea4d"},
@@ -666,6 +684,13 @@ pyyaml = [
     {file = "PyYAML-6.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:f84fbc98b019fef2ee9a1cb3ce93e3187a6df0b2538a651bfb890254ba9f90b5"},
     {file = "PyYAML-6.0-cp310-cp310-win32.whl", hash = "sha256:2cd5df3de48857ed0544b34e2d40e9fac445930039f3cfe4bcc592a1f836d513"},
     {file = "PyYAML-6.0-cp310-cp310-win_amd64.whl", hash = "sha256:daf496c58a8c52083df09b80c860005194014c3698698d1a57cbcfa182142a3a"},
+    {file = "PyYAML-6.0-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:d4b0ba9512519522b118090257be113b9468d804b19d63c71dbcf4a48fa32358"},
+    {file = "PyYAML-6.0-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:81957921f441d50af23654aa6c5e5eaf9b06aba7f0a19c18a538dc7ef291c5a1"},
+    {file = "PyYAML-6.0-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:afa17f5bc4d1b10afd4466fd3a44dc0e245382deca5b3c353d8b757f9e3ecb8d"},
+    {file = "PyYAML-6.0-cp311-cp311-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:dbad0e9d368bb989f4515da330b88a057617d16b6a8245084f1b05400f24609f"},
+    {file = "PyYAML-6.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:432557aa2c09802be39460360ddffd48156e30721f5e8d917f01d31694216782"},
+    {file = "PyYAML-6.0-cp311-cp311-win32.whl", hash = "sha256:bfaef573a63ba8923503d27530362590ff4f576c626d86a9fed95822a8255fd7"},
+    {file = "PyYAML-6.0-cp311-cp311-win_amd64.whl", hash = "sha256:01b45c0191e6d66c470b6cf1b9531a771a83c1c4208272ead47a3ae4f2f603bf"},
     {file = "PyYAML-6.0-cp36-cp36m-macosx_10_9_x86_64.whl", hash = "sha256:897b80890765f037df3403d22bab41627ca8811ae55e9a722fd0392850ec4d86"},
     {file = "PyYAML-6.0-cp36-cp36m-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:50602afada6d6cbfad699b0c7bb50d5ccffa7e46a3d738092afddc1f9758427f"},
     {file = "PyYAML-6.0-cp36-cp36m-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:48c346915c114f5fdb3ead70312bd042a953a8ce5c7106d5bfb1a5254e47da92"},
@@ -773,6 +798,10 @@ requests = [
     {file = "requests-2.28.1-py3-none-any.whl", hash = "sha256:8fefa2a1a1365bf5520aac41836fbee479da67864514bdb821f31ce07ce65349"},
     {file = "requests-2.28.1.tar.gz", hash = "sha256:7c5599b102feddaa661c826c56ab4fee28bfd17f5abca1ebbe3e7f19d7c97983"},
 ]
+setuptools = [
+    {file = "setuptools-65.6.3-py3-none-any.whl", hash = "sha256:57f6f22bde4e042978bcd50176fdb381d7c21a9efa4041202288d3737a0c6a54"},
+    {file = "setuptools-65.6.3.tar.gz", hash = "sha256:a7620757bf984b58deaf32fc8a4577a9bbc0850cf92c20e1ce41c38c19e5fb75"},
+]
 tokenizers = [
     {file = "tokenizers-0.12.1-cp310-cp310-macosx_10_11_x86_64.whl", hash = "sha256:d737df0f8f26e093a82bfb106b6cfb510a0e9302d35834568e5b20b73ddc5a9c"},
     {file = "tokenizers-0.12.1-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:f1271224acafb27639c432e1ce4e7d38eab40305ba1c546e871d5c8a32f4f195"},
@@ -839,17 +868,21 @@ torch = [
     {file = "torch-1.12.1-cp39-none-macosx_11_0_arm64.whl", hash = "sha256:69fe2cae7c39ccadd65a123793d30e0db881f1c1927945519c5c17323131437e"},
 ]
 torchaudio = [
+    {file = "torchaudio-0.12.1-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:dc138bee06b2305442fc132171f2a01d5f42509eaa21bdf87c3d26a6f4a09fdd"},
     {file = "torchaudio-0.12.1-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:1d81f71837d5d5be651e85ca9fa9377ecb4513b0129ddfb025540e1c2406d3e6"},
     {file = "torchaudio-0.12.1-cp310-cp310-manylinux1_x86_64.whl", hash = "sha256:c2f46ad1332d4eb4c5bc2259bad22f7693d1e81cdcf2ab04242bf428d78f161f"},
     {file = "torchaudio-0.12.1-cp310-cp310-manylinux2014_aarch64.whl", hash = "sha256:21741a277d31f75215a09c1590170055b65c2eceda6aa5a263676745bd97172e"},
     {file = "torchaudio-0.12.1-cp310-cp310-win_amd64.whl", hash = "sha256:f0cc2d4ab4288d5115fab554a49bed6251469dc1548c961655556ec48a3c320e"},
+    {file = "torchaudio-0.12.1-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:23dbcf37af2f41d491c0337ca94501ec7ef588adb1766e1eb28033fac549bbd9"},
     {file = "torchaudio-0.12.1-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:e82c48b05d941d64cc67a18d13f8e76ba7e852fe9f187b47d3abfbebd1f05195"},
     {file = "torchaudio-0.12.1-cp37-cp37m-manylinux2014_aarch64.whl", hash = "sha256:142da7f0f05517b32cb54ed6f37997f741ad1bd283474898b680b0dfed7ff926"},
     {file = "torchaudio-0.12.1-cp37-cp37m-win_amd64.whl", hash = "sha256:1c839ceb2035c3ea3458e274e9a1afb65f5fa41678e76c3378b218eb23956579"},
+    {file = "torchaudio-0.12.1-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:a4c8c15b1e810a93bb77b27fa49159bea2253b593ef94039946ec49aef51764f"},
     {file = "torchaudio-0.12.1-cp38-cp38-macosx_11_0_arm64.whl", hash = "sha256:83c08b71a6dc8e23c1d7b00780abb9e4c29528e47a6e644fe3dee7ac2263821e"},
     {file = "torchaudio-0.12.1-cp38-cp38-manylinux1_x86_64.whl", hash = "sha256:186dcaa00b60e441f9c489c00966ecdd7412c2a4592058107f8c3a888cbbf337"},
     {file = "torchaudio-0.12.1-cp38-cp38-manylinux2014_aarch64.whl", hash = "sha256:2937756874050cb3249395d7814dacab2c296ce3e5ae3e63397aa4fc902db885"},
     {file = "torchaudio-0.12.1-cp38-cp38-win_amd64.whl", hash = "sha256:ba00c62bae021b8e5a3d38f04788e489e6f8d9eb16620d8c1e81b1e9d4bf1284"},
+    {file = "torchaudio-0.12.1-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:08f92bc53682d3bad8606dedb70a49e5a0f7cf9306c9173f074dbba97785442e"},
     {file = "torchaudio-0.12.1-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:2fc5a2bc8e8aad475bc519f3c82b9649e14b5c657487ffa712cf7c514143e9d7"},
     {file = "torchaudio-0.12.1-cp39-cp39-manylinux1_x86_64.whl", hash = "sha256:075dba92c8c885ef1bc882e24a0ffdcce29a73f4d2377c75d1fa1c76702b37e3"},
     {file = "torchaudio-0.12.1-cp39-cp39-manylinux2014_aarch64.whl", hash = "sha256:a2bc09eee50fb5adc3e40c66bb63d525344bb8359f65d9c600d53ea6212207e6"},
